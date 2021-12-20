@@ -113,8 +113,7 @@ public class MicronautApplicationPlugin extends MicronautLibraryPlugin {
                 }
             }
         });
-        
-        new MicronautDockerPlugin().apply(project);
+        project.getPluginManager().apply(MicronautDockerPlugin.class);
         final TaskContainer tasks = project.getTasks();
         tasks.withType(JavaExec.class).configureEach(javaExec -> {
             if (javaExec.getName().equals("run")) {
